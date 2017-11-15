@@ -10,3 +10,5 @@ else {
     echo "Skaičiai negali būti trikampio kraštinės.";
 }
 ?>
+
+bhjgj

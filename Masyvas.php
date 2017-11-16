@@ -1,5 +1,5 @@
 <?php
-	 $a=array(4,3,1,2);
+ $a=array(4,3,1,2);
  for ($i=0; $i<count($a); $i++){
     for ($j=0; $j<count($a); $j++) {
       if ($a[$j] > $a[$i]){

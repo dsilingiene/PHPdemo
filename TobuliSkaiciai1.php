@@ -11,6 +11,7 @@ function ar_tobulas($number)
 }
 function tobuli(number);
 {
+    
 for($number = 1; $number < 1000; $number++)
 {
     if(ar_tobulas($number))

@@ -4,11 +4,12 @@
 1. Atspausdinkite visas galimas skirtingas poras laikant, kad pvz poros 
 ‘Jonas’ - ‘Petras’ ir ‘Petras’ - ‘Jonas’ yra tokios pat. 
 2. Ta pati sąlyga tik pvz poros ‘Jonas’ - ‘Petras’ ir ‘Petras’ - ‘Jonas’ yra laikomos skirtingomis.*/
+
 $a = array(‘Jonas’, ‘Petras’, ‘Antanas’, ‘Povilas’);
 $poros = '';
 for ($i=0; $i<count($a); $i++){
-    for ($j=0; $j<4; $j++){
-            $poros .= $a[$i] . $a[$j] . "<br />";  
+    for ($j=0; $j<count($a); $j++){
+            $poros .= $a[$i]. "-". $a[$j] . "<br />";  
         }
     
 }

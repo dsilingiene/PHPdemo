@@ -1,4 +1,5 @@
 <?php
+
 /*#7 - 1/2 Uždaviniai - Turime masyvą $a = [‘Jonas’, ‘Petras’, ‘Antanas’, ‘Povilas’]. 
 1. Atspausdinkite visas galimas skirtingas poras laikant, kad pvz poros 
 ‘Jonas’ - ‘Petras’ ir ‘Petras’ - ‘Jonas’ yra tokios pat. 

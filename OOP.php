@@ -23,7 +23,7 @@ $zmones = [
 ?>
     <table>
         <tr>
-            <th>Vardas</th><th>Pavarde</>
+            <th>Vardas</th><th>Pavarde</th>
         </tr>
         <?php foreach ($zmones as $zmogus): ?>
             <tr>

@@ -15,6 +15,9 @@ foreach ($a as $eilute) {
         echo $stulpelis . ":" . $reiksme  . ";";
         $sum[$stulpelis] += $reiksme;
     }
+    
 }
 var_dump ($sum);
+$max_reiksme = max($sum);
+echo "Didžiausia reikšmė yra: $max_reiksme"
 ?>

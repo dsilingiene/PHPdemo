@@ -6,9 +6,6 @@ Reikia atspausdinti mokinių vardus ir pavardes su jų trimestro vidurkiu į 
 vidurkio mažėjimo tvarka.
 */
 
-//#9 - Pratimas 2 - Sukurkite masyvą,
-// kuriame būtų bent trys Zmogus klasės objektai ir atspausdinkite visus žmones lentelėje.
-
 class Mokinys
 {
 public $vardas;
@@ -27,7 +24,7 @@ $mokiniai = [
     new Mokinys ('Ieva', 'Ievaite', 9),
     new Mokinys ('Petras','Petraitis', 7)
 ];
-var_dump ($mokiniai);
+//var_dump ($mokiniai);
 
 ?>
     <table>

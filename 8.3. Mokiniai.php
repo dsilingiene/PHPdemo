@@ -8,11 +8,9 @@ var_dump($mokiniai);
 Suskaičiuokite kuris geriausiai mokosi pagal visų dalykų pažymių vidurkius. 
 Dalyko pažymio nustatymui reikės panaudoti funkciją round()*/
 
-foreach ($mokiniai as $vardas) {
-    foreach ($mokiniai as $pazymiai => $dalykai)
+   foreach ($mokiniai as $pazymiai => $dalykai);
         foreach ($mokiniai as $dalykai => $a);
-            for ($i=0; $i<count($a); $i++)
+               for ($i=0; $i<count($a); $i++)
             $vidurkis = array_sum($a)/count($a);
         echo ($vidurkis);
-}
 ?>

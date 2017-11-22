@@ -9,6 +9,8 @@ $a = [
 [‘vardas’ => ‘Eglė’, ‘lytis’ => ‘M’]
 ]; 
 
+
+
 else echo nėra duomenų
 var_dump ($zmones);
 

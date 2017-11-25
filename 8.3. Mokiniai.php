@@ -14,3 +14,4 @@ Dalyko pažymio nustatymui reikės panaudoti funkciją round()*/
             $vidurkis = array_sum($a)/count($a);
         echo ($vidurkis);
 ?>
+

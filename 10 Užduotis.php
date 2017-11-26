@@ -17,39 +17,24 @@ class Mokinys {
     public $vardas;
     public $pavarde;
     
-      
 
     function __construct($v, $p, $gd) {
         $this->vardas = $v;
         $this->pavarde = $p;
-
+        $this->gimimoData = $gd;
     }
-
-    
+   
 }
-    class MokiniaiAmzius extends Mokinys
-    {
-    public $gimimoData; 
-        
-    function __construct($vardas, $pavarde, $gimimoData) {
-    parent::__construct($vardas, $pavarde,$gimimoData);
-    $this->gimimoData = $gimimoData;
-    }
-
-    
-}
-
-
 $mokiniai = [
-    new MokiniaiAmzius('Jonas', 'Jonaitis' , '2017-10-31'), 
-    new MokiniaiAmzius('Ona', 'Onaite', '2002-01-10'),
-    new MokiniaiAmzius('Petras', 'Petraitis', '2002-08-11'),
-    new MokiniaiAmzius('Ieva', 'Ievaite', '2003-05-21')
+    new Mokinys('Jonas', 'Jonaitis' , '2008-10-31'), 
+    new Mokinys('Ona', 'Onaite', '2002-01-10'),
+    new Mokinys('Petras', 'Petraitis', '2002-08-11'),
+    new Mokinys('Ieva', 'Ievaite', '2003-05-21')
 ];
 
 
-$date = new DateTime(null, new DateTimeZone('Europe/Vilnius'));
-echo $date->format('Y-m-d') . "\n";
+//$date = new DateTime(null, new DateTimeZone('Europe/Vilnius'));
+//echo $date->format('Y-m-d') . "\n";
 
 ?>
 
@@ -63,7 +48,7 @@ echo $date->format('Y-m-d') . "\n";
     <tr>
         <td><?php echo $mokinys->vardas; ?></td>
         <td><?php echo $mokinys->pavarde; ?></td>
-        <td><?php echo $mokinys->gimimoData; ?></td>   
+        <td><?php echo $mokinys->amzius; ?></td>   
         </tr>
     <?php endforeach; ?>
 </table>

@@ -16,25 +16,28 @@ html lentelėje tik tuos mokinius kurie turi 18 metų ir daugiau.*/
 class Mokinys {
     public $vardas;
     public $pavarde;
+    public $gimimoData;
     
 
-    function __construct($v, $p, $gd) {
+    function __construct($v, $p, $gimimoData) {
         $this->vardas = $v;
         $this->pavarde = $p;
-        $this->gimimoData = $gd;
+        $this->gimimoData = $gimimoData;
     }
    
-}
+    function amzius() {
+        $gd = new DateTime($this -> gimimoData);
+        $now = new DateTime();
+        $diff = $gd ->diff($now);
+        return $diff ->y; }
+    }
+
 $mokiniai = [
-    new Mokinys('Jonas', 'Jonaitis' , '2008-10-31'), 
-    new Mokinys('Ona', 'Onaite', '2002-01-10'),
-    new Mokinys('Petras', 'Petraitis', '2002-08-11'),
-    new Mokinys('Ieva', 'Ievaite', '2003-05-21')
+    new Mokinys('Jonas', 'Jonaitis' , '1999-10-31'), 
+    new Mokinys('Ona', 'Onaite', '1998-01-10'),
+    new Mokinys('Petras', 'Petraitis', '1997-08-11'),
+    new Mokinys('Ieva', 'Ievaite', '1999-05-21')
 ];
-
-
-//$date = new DateTime(null, new DateTimeZone('Europe/Vilnius'));
-//echo $date->format('Y-m-d') . "\n";
 
 ?>
 
@@ -42,14 +45,16 @@ $mokiniai = [
     <tr>
         <th>Vardas</th>
         <th>Pavarde</th>
+        <th>Gimimo data</th>
         <th>Amzius</th>
     </tr>
     <?php foreach ($mokiniai as $mokinys): ?>
     <tr>
-        <td><?php echo $mokinys->vardas; ?></td>
-        <td><?php echo $mokinys->pavarde; ?></td>
-        <td><?php echo $mokinys->amzius; ?></td>   
-        </tr>
+        <td><? echo $mokinys->vardas ?></td>
+        <td><? echo $mokinys->pavarde ?></td>
+        <td><? echo $mokinys->gimimoData ?></td>
+        <td><? echo $mokinys->amzius() ?></td>   
+    </tr>
     <?php endforeach; ?>
 </table>
 

@@ -32,6 +32,8 @@ class Mokinys {
         return $diff ->y; }
     }
 
+    
+
 $mokiniai = [
     new Mokinys('Jonas', 'Jonaitis' , '1999-10-31'), 
     new Mokinys('Ona', 'Onaite', '1998-01-10'),

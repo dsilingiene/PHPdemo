@@ -39,6 +39,13 @@ $automobiliai = [
     new Radar('2017-01-21 11:20:10', '3', '15000', '1250'),
     new Radar('2017-01-21 07:10:11', '4', '100500', '4200')
 ];
+
+usort($automobiliai, function($a,$b) {
+    $greitisA = $a ->greitisKmh();
+    $greitisB = $b ->greitisKmh();
+
+    return $greitisA == $greitisB? 0 : $greitisA < $greitisB ? 1 : -1;
+});
 ?>
 
 <table border="1">

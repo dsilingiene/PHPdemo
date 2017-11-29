@@ -34,7 +34,7 @@ Tegul programa atsimena (session arba cookie) visus suvestus automobilius ir,
 
 <h1>Automobiliai</h1>
 
-    <form method="post" action="automobiliai.php">
+    <form method="post" action="12Uzduotis.php">
     <br><label>Greičio fiksavimo data ir laikas: </label><input type="text" name="date" required/></br>
     <br><label>Automobilio numeris, pvz: ABC 001: </label><input type="text" name="number" required/></br>
     <br><label>Nuvažiuotas atstumas metrais: </label><input type="number" name="distance" required/></br>

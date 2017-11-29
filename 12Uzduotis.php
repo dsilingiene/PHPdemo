@@ -1,7 +1,7 @@
 <?php 
 session_start();
 if (isset($_SESSION['automobiliai'])) {
-    $radars = $_SESSION['automobiliai'];    
+    $automobiliai = $_SESSION['automobiliai'];    
 } else {
     $automobiliai = array(); 
 }

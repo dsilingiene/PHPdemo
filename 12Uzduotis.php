@@ -1,16 +1,5 @@
 <?php 
 session_start();
-if (isset($_SESSION['automobiliai'])) {
-    $automobiliai = $_SESSION['automobiliai'];    
-} else {
-    $automobiliai = array(); 
-}
-if (isset($_POST['date'])) { 
-    $naujas = new Automobiliai($_POST['date'], $_POST['number'], $_POST['distance'], $_POST['time']);
-    $automobiliai[] = $naujas;
-    $_SESSION['automobiliai'] = $automobiliai;
-}
-
 ?>
 
 <!DOCTYPE html>
@@ -34,7 +23,7 @@ Tegul programa atsimena (session arba cookie) visus suvestus automobilius ir,
 
 <h1>Automobiliai</h1>
 
-    <form method="post" action="automobiliai.php">
+    <form method="post" action="">
     <br><label>Greičio fiksavimo data ir laikas: </label><input type="text" name="date" required/></br>
     <br><label>Automobilio numeris, pvz: ABC 001: </label><input type="text" name="number" required/></br>
     <br><label>Nuvažiuotas atstumas metrais: </label><input type="number" name="distance" required/></br>
@@ -42,30 +31,44 @@ Tegul programa atsimena (session arba cookie) visus suvestus automobilius ir,
     <br> <button type="submit">Įvesti</button></br>
     <br></form>
 
- <?php
+<?php
 
-class Automobiliai {
+class Radar {
     public $date;
     public $number;
     public $distance;
     public $time;
 
-    function __construct($dat, $num, $dist, $t) {
-        $this->date = $dat;
-        $this->number = $num;
-        $this->distance = $dist;
-        $this->time = $t;
+    function __construct($date, $number, $distance, $time) {
+        $this->date = $date;
+        $this->number = $number;
+        $this->distance = $distance;
+        $this->time = $time;
     }
 
     function greitisKmh() {
-        $greitisMs = $_POST['distance']/$_POST['time'];
+        $greitisMs = $this->distance/$this->time;
         $greitisKmh = $greitisMs*3.6;
-        return $greitisKmh;
+        return round($greitisKmh,1);
     }
+}        
+
+if (isset($_SESSION['radars'])) {
+    $radars = $_SESSION['radars']; 
+    }  else $radars = [];
     
+$radars = [
+    new Radar('2016-01-01 14:30:00', '1' , '5600', '300'), 
+    new Radar('2015-11-15 07:35:20', '2', '11000', '690'),
+    new Radar('2017-01-21 11:20:10', '3', '15000', '1250'),
+    new Radar('2017-01-21 07:10:11', '4', '100500', '4200')
+];
+
+if (isset($_REQUEST['date'])) {
+    $radar = new Radar ($_POST['date'], $_POST['number'], $_POST['distance'], $_POST['time']);
 }
 
-usort($automobiliai, function($a,$b) {
+usort($radars, function($a,$b) {
     $greitisA = $a ->greitisKmh();
     $greitisB = $b ->greitisKmh();
 
@@ -74,29 +77,24 @@ usort($automobiliai, function($a,$b) {
 
 ?>
 
-
- <table border="1">
- <caption><h1>Automobiliai</h1></caption>
- <tr>
-     <th>Automobilio numeris</th>
-     <th>Data ir laikas</th>
-     <th>Nuvažiuotas atstumas</th>
-     <th>Sugaištas laikas</th>
-     <th>Greitis Km/val</th>
- <tr>
- <?php foreach ($automobiliai as $automobiliai): ?>
- <tr>
-     <td><?php echo $automobiliai->date; ?></td>
-     <td><?php echo $automobiliai->number; ?></td>
-     <td><?php echo $automobiliai->distance; ?></td>
-     <td><?php echo $automobiliai->time; ?></td>
-     <!--<?php echo greitisKmh(); ?>-->
-     
- </tr>
+<table border="1">
+<tr>
+    <th>Automobilio numeris</th>
+    <th>Data, laikas</th>
+    <th>Atstumas, m </th>
+    <th>Laikas, s </th>
+    <th>Greitis Km/h</th>
+</tr>
+<?php foreach ($radars as $radar): ?>
+<tr>
+    <td><? echo $radar->number ?></td>
+    <td><? echo $radar->date ?></td>
+    <td><? echo $radar->distance ?></td>
+    <td><? echo $radar->time ?></td>
+    <td><? echo $radar ->greitisKmh () ?></td>
+</tr>
 <?php endforeach; ?>
- </tr>
-    
 </table>
+
 </body>
 </html>
-

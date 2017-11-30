@@ -57,15 +57,17 @@ if (isset($_SESSION['radars'])) {
     $radars = $_SESSION['radars']; 
     }  else $radars = [];
     
-$radars = [
+/*$radars = [;
     new Radar('2016-01-01 14:30:00', '1' , '5600', '300'), 
     new Radar('2015-11-15 07:35:20', '2', '11000', '690'),
     new Radar('2017-01-21 11:20:10', '3', '15000', '1250'),
     new Radar('2017-01-21 07:10:11', '4', '100500', '4200')
-];
+];*/
 
 if (isset($_REQUEST['date'])) {
-    $radar = new Radar ($_POST['date'], $_POST['number'], $_POST['distance'], $_POST['time']);
+    $radar = new Radar ($_REQUEST['date'], $_REQUEST['number'], $_REQUEST['distance'], $_REQUEST['time']);
+    $radars[] = $radar;
+    $_SESSION['radars'] = $radars;
 }
 
 usort($radars, function($a,$b) {

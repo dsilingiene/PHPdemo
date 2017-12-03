@@ -1,6 +1,0 @@
-//per get pasiemam, jei nėra, tada nauja masyva
-gale redirect i kita url kad nerefreshintu amzinai ta pati
-
-jei su cookies - visą masyva verciam i json, po to atgal
-i cookies galima rašyt tik tekstą
-json_encode??

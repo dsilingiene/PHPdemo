@@ -2,7 +2,6 @@
 /*#8 - 1 - Turime žmonių masyvą, kurio kiekvienas elementas 
 yra masyvas su žmogaus vardu ir lytimi. Atspausdinkite 
 visas galimas skirtingas poras vyras - moteris.*/
-
     $zmones = [ 
         ['vardas' => 'Jonas', 'lytis' => 'V'],
         ['vardas' => 'Ona', 'lytis' => 'M'], 

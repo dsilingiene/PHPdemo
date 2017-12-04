@@ -1,16 +1,14 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>14 Užduotis</title>
+        <title>15 Užduotis</title>
         <meta charset="UTF-8">
     </head>
 <body>
-<?php 
-
-/*Sukurkite su phpMyAdmin bent 15 automobilių greičių įrašų. 
-Parašykite programą, kuri išvestų įrašus puslapiais po 10. 
-Padarykite, kad būtų du mygtukai “Pirmyn” ir/arba “Atgal” vaikščiojimui per puslapius.*/
-
+<h1>15 Užduotis</h1>
+<?php
+/*Sukurkite programą, kad galima būtų įvesti naujus radarų įrašus ir taisyti 
+jau suvestą informaciją. Taip pat kad galima būtų peržiūrėti jau turimus įrašus.*/
 $servername = "localhost";
 $username = "Auto";
 $password = "LabaiSlaptas123";
@@ -22,21 +20,33 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
     die("Nepavyko prisijungti: " . $conn->connect_error);
 } 
-$page = 5;
+$sql="INSERT INTO `radars` (id, date, number, distance, time)
+VALUES 
+('{$_POST['id']}','{$_POST['date']}','{$_POST['number']}','{$_POST['distance']}','{$_POST['time']}')";
+
+$page = 1;
 if (isset($_GET['page'])) {
     $page = $_GET['page'];
 }
-if ($page != 2) $page = 10;
+if ($page != 2) $page = 100;
 if (isset($_GET['offset'])) {
     $offset = $_GET['offset'];
 } else {
     $offset = 0;
 }
 
-$sql = 'SELECT `id`,`number`, `distance`,`time`,`distance`/`time`*3.6 as `speed`, `date` FROM radars ORDER BY `id`, `date` DESC LIMIT ' . ($page + 1) . ' OFFSET ' . $offset;
+$sql = 'SELECT `id`,`date`,`number`, `distance`,`time`,`distance`/`time`*3.6 as `speed` FROM radars ORDER BY `id`, `date` DESC LIMIT ' . ($page + 1) . ' OFFSET ' . $offset;
 $result = $conn->query($sql);
 if ($result->num_rows > 0) { 
     ?>
+<form method="post" action="">
+    <br><label>Greičio fiksavimo data ir laikas: </label><input type="text" name="date" required/></br>
+    <br><label>Automobilio numeris, pvz: ABC 001: </label><input type="text" name="number" required/></br>
+    <br><label>Nuvažiuotas atstumas metrais: </label><input type="number" name="distance" required/></br>
+    <br><label>Sugaištas laikas sekundėmis: </label><input type="number" id="time" name="time" value="<?= $time ?>" require/></br>
+    <br> <button type="submit">Įvesti</button></br>
+    <br></form>
+
     <?php if ($offset > 0): ?>
     <!-- <form>
         <input type="hidden" name="offset" value="<?= $offset >= $page ? $offset - $page : 0 ?>">
@@ -86,4 +96,3 @@ if ($result->num_rows > 0) {
 $conn->close();
 ?>
 </body>
-</html>

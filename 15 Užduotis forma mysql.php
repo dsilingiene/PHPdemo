@@ -37,10 +37,10 @@ $values = [];
     }
 
     if ($_POST['id'] > 0) {
-        $sql = "UPDATE radars SET `number` = ?, `date` = ?, `distance` = ?, `time` = ? WHERE id = ?"; 
+        $sql = "UPDATE radars SET `date` = ?, `number` = ?, `distance` = ?, `time` = ? WHERE id = ?"; 
         $stmt = $conn->prepare($sql);
         
-        $stmt->bind_param("ssddi", $_POST['number'], $_POST['date'], 
+        $stmt->bind_param("ssddi", $_POST['date'], $_POST['number'], 
             $_POST['distance'], $_POST['time'], $_POST['id']);
         $stmt->execute();
 
@@ -84,7 +84,7 @@ if ($result->num_rows > 0) {
             <th>ID</th>
             <th>Data ir laikas</th>
             <th>Numeris</th>
-            <th>Atstumas (m)</th>
+            <th>Atstumas, m</th>
             <th>Laikas, s</th>
             <th>Duomenų taisymas</th>
             

@@ -29,7 +29,7 @@ $values = [];
 <?php 
 
     if (array_key_exists('id', $_GET) && $_GET['id'] > 0) {
-        $sql = 'SELECT * FROM radars WHERE `id` = ' . $_GET["id"];
+        $sql = 'SELECT `date`, `number`, `distance`, `time` FROM radars WHERE `id` = ' . $_GET["id"];
         $result = $conn->query($sql);
         if ($result->num_rows > 0) {
             $values = $result->fetch_assoc();
@@ -44,8 +44,8 @@ $values = [];
             $_POST['distance'], $_POST['time'], $_POST['id']);
         $stmt->execute();
 
-        header("Location: " . $_SERVER['PHP_SELF']); /* Redirect browser */
-        exit();
+//header("Location: " . $_SERVER['PHP_SELF']); /* Redirect browser */
+        //exit();
 
     } else if ($_POST['id'] === '') {
         $insert = "INSERT INTO radars(`date`, `number`, `distance`, `time`) VALUES(?, ?, ?, ?)"; 
@@ -53,8 +53,8 @@ $values = [];
         $stmt->bind_param("ssdd", $_POST['date'], $_POST['number'], $_POST['distance'], $_POST['time']);
         $stmt->execute();
 
-        header("Location: " . $_SERVER['PHP_SELF']); /* Redirect browser */
-        exit();
+        //header("Location: " . $_SERVER['PHP_SELF']); /* Redirect browser */
+        //exit();
     }
 
 
@@ -75,7 +75,7 @@ lentele($conn);
 
 function lentele($conn) {
 // išvedame
-$sql = 'SELECT *, `id`, `date`, `number`, `distance`, `time` FROM radars ORDER BY `id`, `date` DESC';
+$sql = 'SELECT `id`, `date`, `number`, `distance`, `time` FROM radars ORDER BY `id`, `date` DESC';
 $result = $conn->query($sql);
 if ($result->num_rows > 0) {
     ?>

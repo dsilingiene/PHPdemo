@@ -67,7 +67,7 @@ $values = [];
 
 <form action="" method="post"><br>
     <br><label>Greičio fiksavimo data ir laikas: </label>
-    <br><input name="date" type="datetime" value="<?= $values['date'] ?>"><br>
+    <br><input name="date" type="text" value="<?= $values['date'] ?>"><br>
     <br><label>Automobilio numeris, pvz: ABC 001: </label>
     <br><input name="number" type="text" value="<?= $values['number'] ?>"><br>
     <br><label>Nuvažiuotas atstumas metrais: </label>

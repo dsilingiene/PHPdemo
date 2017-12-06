@@ -114,7 +114,10 @@ function lentele($conn) {
 
         <?php
     } else {
-        echo 'nėra duomenų';
+        echo 'Nėra duomenų';
     }
     $conn->close();
 }
+?>
+</body>
+</html>

@@ -10,7 +10,7 @@
 
 /*Sukurkite programą, kad galima būtų įvesti naujus radarų įrašus ir taisyti 
 jau suvestą informaciją. Taip pat kad galima būtų peržiūrėti jau turimus įrašus.*/
-
+error_reporting ('E_NONE');
 $servername = "localhost";
 $username = "Auto";
 $password = "LabaiSlaptas123";

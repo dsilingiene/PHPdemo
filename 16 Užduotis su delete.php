@@ -8,9 +8,9 @@
 <h1>16 Užduotis</h1>
 <?php
 
-/*Sukurkite programą, kad galima būtų įvesti naujus radarų įrašus ir taisyti 
-jau suvestą informaciją. Taip pat kad galima būtų peržiūrėti jau turimus įrašus.*/
-
+/*Sukurkite programą kad galima būtų įvesti naujus įrašus apie automobilių greitį, 
+taisyti jau suvestą informaciją, o taip pat trinti įrašus.*/
+error_reporting ('E_STRICT');
 $servername = "localhost";
 $username = "Auto";
 $password = "LabaiSlaptas123";
@@ -35,7 +35,6 @@ $values = [];
             $values = $result->fetch_assoc();
         }
     }
-
     if (isset($_GET['delete'])) {
         $sql = "DELETE FROM radars WHERE id = ". intval($_GET['delete']);
         $conn->query($sql);
@@ -125,7 +124,6 @@ function lentele($conn) {
     }
     $conn->close();
 }
-
 ?>
 </body>
 </html>

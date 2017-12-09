@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>17 Užduotis</title>
+        <title>17 Užduotis. Pradžia</title>
         <meta charset="UTF-8">
     </head>
 <body>
-<h1>17 Užduotis</h1>
+<h1>17 Užduotis. Pradžia</h1>
 <?php
 
 /*Sukurkite programą kad galima būtų įvesti naujus įrašus apie automobilių greitį, 
@@ -77,6 +77,13 @@ $values = [];
 
 ?>
 
+<div>
+    <a href="?menu=home">Pradžia</a>
+    <a href="auto.php">Automobiliai</a>
+    <a href="?year.php">Metai</a>
+    <a href="month.php">Mėnesiai</a>
+</div>
+
 <form action="" method="post"><br>
     <br><label>Greičio fiksavimo data ir laikas: </label>
     <br><input name="date" type="text" value="<?= $values['date'] ?>"><br>
@@ -90,7 +97,7 @@ $values = [];
     <input name="id" type="hidden" value="<?= $values['id'] ?>"><br>
 
     <br><button>Įvesti</button><br>
-    
+        
 </form>
 <br><form action="" method="get"><button>Valyti</button></form><br>
 

@@ -73,8 +73,6 @@ $values = [];
         header("Location: " . $_SERVER['PHP_SELF']); /* Redirect browser */
         exit();
     }
-
-
 ?>
 
 <div>
@@ -103,7 +101,6 @@ $values = [];
 
 <?php
 lentele($conn);
-
 
 function lentele($conn) {
     // išvedame

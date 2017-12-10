@@ -30,7 +30,6 @@ if ($conn->connect_error) {
     die("Nepavyko prisijungti: " . $conn->connect_error);
 } 
 
-
     $query = 'SELECT `number`, COUNT(`number`) AS kiekis, ROUND(MAX(`distance` / `time` * 3.6 )) 
               AS maxGreitis 
               FROM `radars`
@@ -38,6 +37,7 @@ if ($conn->connect_error) {
     if(!($result = $conn->query($query))) {
         die("Error: " . $conn->error);
     }
+    
 ?>
     <table border 1px>
         <tr>

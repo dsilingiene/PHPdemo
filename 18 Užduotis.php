@@ -1,28 +1,17 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>17 Užduotis. Pradžia</title>
+        <title>15 Užduotis</title>
         <meta charset="UTF-8">
     </head>
 <body>
-<h1>17 Užduotis. Pradžia</h1>
+<h1>15 Užduotis</h1>
 <?php
 
-/*Sukurkite programą kad galima būtų įvesti naujus įrašus apie automobilių greitį, 
-taisyti jau suvestą informaciją, o taip pat trinti įrašus.
-Pataisykite automobilių programėlę pridėdami naujus mygtukus:
-1) Mygtukas “Automobiliai”, kurį paspaudus būtų išvedami tik automobilių numeriai, 
-automobilio įrašų kiekis ir maksimalus to automobilio greitis;
-2) Mygtukas “Metai” - paspaudus būtų išvedamos tik atitinkamas 
-periodas, įrašų kiekis tame periode ir maksimalus, minimalus bet vidutinis greitis, pvz: 
-2015 25 150 100 125
-2016 20 167 109 135 
-3) Mygtukas “Menuo” - paspaudus būtų išvedamos tik atitinkamas 
-periodas, įrašų kiekis tame periode ir maksimalus, minimalus bet vidutinis greitis, pvz:
-2015 1 25 150 100 125
-2015 2 20 158 103 128
-Padaryti rezultato puslapiavimą*/
-
+/*Sukurkite programą, kad galima būtų įvesti naujus radarų įrašus ir taisyti 
+jau suvestą informaciją. Taip pat kad galima būtų peržiūrėti jau turimus įrašus.
+Pataisykite automobilių programėlę pridėdami galimybę įvesti vairuotojus 
+ir juos priskirti automobilių įrašams.*/
 error_reporting ('E_STRICT');
 $servername = "localhost";
 $username = "Auto";
@@ -48,10 +37,6 @@ $values = [];
             $values = $result->fetch_assoc();
         }
     }
-    if (isset($_GET['delete'])) {
-        $sql = "DELETE FROM radars WHERE id = ". intval($_GET['delete']);
-        $conn->query($sql);
-    }
 
     if ($_POST['id'] > 0) {
         $sql = "UPDATE radars SET `date` = ?, `number` = ?, `distance` = ?, `time` = ? WHERE id = ?"; 
@@ -73,14 +58,9 @@ $values = [];
         header("Location: " . $_SERVER['PHP_SELF']); /* Redirect browser */
         exit();
     }
-?>
 
-<div>
-    <a href="?menu=home">Pradžia</a>
-    <a href="auto.php">Automobiliai</a>
-    <a href="year.php">Metai</a>
-    <a href="month.php">Mėnesiai</a>
-</div>
+
+?>
 
 <form action="" method="post"><br>
     <br><label>Greičio fiksavimo data ir laikas: </label>
@@ -95,12 +75,13 @@ $values = [];
     <input name="id" type="hidden" value="<?= $values['id'] ?>"><br>
 
     <br><button>Įvesti</button><br>
-        
+    
 </form>
 <br><form action="" method="get"><button>Valyti</button></form><br>
 
 <?php
 lentele($conn);
+
 
 function lentele($conn) {
     // išvedame
@@ -117,7 +98,6 @@ function lentele($conn) {
                 <th>Laikas, s</th>
                 <th>Greitis km/h</th>
                 <th>Duomenų koregavimas</th>
-                <th>Duomenų pašalinimas</th>
             </tr>
         
             <?php while($row = $result->fetch_assoc()): ?>
@@ -129,7 +109,6 @@ function lentele($conn) {
                     <td><?php echo $row['time']; ?></td>
                     <td><?php echo round($row['speed']); ?></td>
                     <td><a href="?id=<?= $row['id'] ?>">Taisyti</a></td>
-                    <td><a href="?delete=<?= $row['id'] ?>">Trinti</a></td>
                 </tr>
             <?php endwhile; ?>
         

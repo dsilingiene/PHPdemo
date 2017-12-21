@@ -15,7 +15,7 @@ class RadarsController extends Controller
     public function index()
     
     {
-    $radars = Radar::orderBy('id', 'desc')->paginate(15);
+    $radars = Radar::orderBy('date', 'desc')->paginate(15);
     return view('radars.index', compact('radars'));
     }
 
@@ -37,6 +37,15 @@ class RadarsController extends Controller
      */
     public function store(Request $request)
     {
+        
+            $this->validate($request, [
+            'date' => 'required | date',
+            'distance' => 'required | numeric',
+            'time' => 'required | numeric',
+            'number' => 'required | string | max:6 | min:1',
+            ]);
+
+
         $radar = new Radar;
         $radar->date = $request->input('date');
         $radar->number = $request->input('number');
@@ -78,7 +87,14 @@ class RadarsController extends Controller
      */
     public function update(Request $request, Radar $radar)
     {
-        return view('radars.edit', compact('radar'));
+        
+        $radar->date = $request->input('date');
+        $radar->number = $request->input('number');
+        $radar->distance = $request->input('distance');
+        $radar->time = $request->input('time');
+        $radar->save();
+
+        return redirect('/radars');
         }
 
     /**

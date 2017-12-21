@@ -6,11 +6,20 @@
 
         <form method="post" action="{{ url("radars") }}">
             {{ csrf_field() }}
-            <input name="date" placeholder="date">
+            <input name="date" placeholder="date" value = "{{old('date')}}">
             <input name="number" placeholder="number">
             <input name="distance" placeholder="distance">
             <input name="time" placeholder="time">
             
             <button type="submit">Save</button>
         </form>
+        <br>
+        @if (count($errors))
+        @foreach($errors->all() as $error)
+        <p>{{ $error }}</p>
+        @endforeach
+        @endif
+        <br>
+
+    <a href="{{url('radars')}}"><h3>Atgal į sąrašą</h3></a>
 @endsection

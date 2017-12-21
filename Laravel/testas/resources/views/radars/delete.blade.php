@@ -1,20 +1,22 @@
 @extends('layout')
 
 @section('content')
-        <h1>Delete Radar</h1>
+    <h1>Delete Radar</h1>
 
-        <form action="{{ url('/radars', $radar->id)}}" method="post" > 
-        {{ csrf_field() }}
-        {{ method_field('PUT') }}
+        <form method="post" action="{{ url('radars', $radar->id) }}">
+            {{ csrf_field() }}
+            {{ method_field('DELETE') }}
+            
+            <div>id: {{$radar->id}}</div>
+            <div>Date: {{$radar->date}}</div>
+            <div>Number: {{$radar->number}}</div>
+            <div>Distance: {{$radar->distance}}</div>
+            <div>Time: {{$radar->time}}</div>
+            <div>Speed: {{$radar->distance / $radar->time * 3.6}}</div>
 
-            <input name="date" value="{{$radar ->date}}">
-            <input name="number" value="{{$radar ->number}}">
-            <input name="distance" value="{{$radar ->distance}}"">
-            <input name="time" value="{{$radar ->time}}">
-            <button type="submit">Save</button>
+            <button type="submit">Delete</button>
         </form>
 
-    <br>
+        <a href="{{url('radars')}}"><h3>Atgal į sąrašą</h3></a>
 
-    <a href="{{url('radars')}}"><h3>Atgal į sąrašą</h3></a>
 @endsection

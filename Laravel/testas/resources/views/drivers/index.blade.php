@@ -24,6 +24,7 @@
     </tr>
 @endforeach
 </table>
+
 <br>
         
         <a href={{ url('drivers/create') }}><h3>Naujas įrašas</h3></a>

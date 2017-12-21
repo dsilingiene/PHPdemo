@@ -12,7 +12,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run() {
 
-        \App\Radar::create([
+        /*\App\Radar::create([
             'date' => Carbon::create(2010, 1, 1, 23, 25, 50),
             'number' => 'AAA001',
             'distance' => 500,
@@ -41,7 +41,11 @@ class DatabaseSeeder extends Seeder
             'number' => 'CNL500',
             'distance' => 10,
             'time' => 5
-        ]);
+        ]);*/
+
+        {
+
+        }
         
         \App\Driver::create([
             'name' => 'Jonas',
@@ -79,6 +83,10 @@ class DatabaseSeeder extends Seeder
             $radar->number = $number;
             $radar->distance = $distance;
             $radar->time = $time;
+
+            if ($i % 100 ==0) {
+                $radar->driver_id = rand (1,3); 
+            }
             
             $radar->save();
     

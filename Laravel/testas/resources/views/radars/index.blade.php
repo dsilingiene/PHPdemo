@@ -13,6 +13,10 @@
         <th>Speed, km/h </th>
         <th>Edit </th>
         <th>Delete </th>
+        <th>Driver Id </th>
+        <th>Driver Name </th>
+        
+
         
     <tr>
 @foreach ($radars as $radar)
@@ -21,10 +25,14 @@
         <td>{{$radar->date}}</td>
         <td><a href="{{ url('radars', $radar->id) }}">{{$radar->number}}</td>
         <td>{{$radar->distance}}</td>
-        <td>{{ROUND($radar->distance/$radar-> time) * 3.6}}</td>
         <td>{{$radar->time}}</td>
+        <td>{{ROUND($radar->distance/$radar-> time) * 3.6}}</td>
         <td><a href="radars/{{ $radar->id }}/edit">Edit</a></td>
         <td><a href="radars/{{ $radar->id }}/delete">Delete</a></td>
+        <td>{{$radar->driver_id}}</td>
+        <td>{{$radar->driver ? $radar->driver->name: '' }}</td>
+        
+        
                 
     </tr>
 

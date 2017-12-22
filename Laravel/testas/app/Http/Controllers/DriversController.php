@@ -96,8 +96,14 @@ class DriversController extends Controller
      * @param  Driver  $driverid
      * @return \Illuminate\Http\Response
      */
+    public function delete(Driver $driver)
+    {
+        return view('drivers.delete', compact('driver'));
+    }
+
     public function destroy(Driver $driver)
     {
-        //
+        $driver->delete();
+        return redirect('/drivers');        
     }
 }

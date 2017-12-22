@@ -11,7 +11,6 @@
 <div>Speed km/h: {{ROUND($radar->distance/$radar->time)*3.6}}</div>
 <br>
 <a href="{{url('radars')}}"><h3>Atgal į sąrašą</h3></a>
-<a href="radars/{{ $radar->id }}/edit">Edit</a></a><br>
-<a href="radars/{{ $radar->id }}/delete">Delete</a></a>
+
 
 @endsection

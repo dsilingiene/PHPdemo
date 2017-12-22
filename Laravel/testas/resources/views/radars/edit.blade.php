@@ -7,9 +7,9 @@
             {{ csrf_field() }}
             {{ method_field('PUT') }}
             <input name="date" value="{{old('date',$radar ->date)}}">
-            <input name="number" value="{{$radar ->number}}">
-            <input name="distance" value="{{$radar ->distance}}">
-            <input name="time" value="{{$radar ->time}}">
+            <input name="number" value="{{old('number',$radar ->number)}}">
+            <input name="distance" value="{{old('distance',$radar ->distance)}}">
+            <input name="time" value="{{old('time',$radar ->time)}}">
             
             <button type="submit">Update</button>
         </form>

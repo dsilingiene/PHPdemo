@@ -76,6 +76,7 @@ $radars = DB::table('radars')->get();
     Route::get('radars/{radar}', 'RadarsController@show');
     Route::get('radars/{radar}/edit', 'RadarsController@edit');
     Route::put('radars/{radar}', 'RadarsController@update');
+    Route::get('radars/{radar}/delete', 'RadarsController@delete');
     Route::delete('radars/{radar}', 'RadarsController@destroy');
     
     Route::get('drivers', 'DriversController@index');
@@ -84,6 +85,7 @@ $radars = DB::table('radars')->get();
     Route::get('drivers/{driver}', 'DriversController@show');
     Route::get('drivers/{driver}/edit', 'DriversController@edit');
     Route::put('drivers/{driver}', 'DriversController@update');
+    Route::get('drivers/{radar}/delete', 'DriversController@delete');
     Route::delete('drivers/{driver}', 'DriversController@destroy');
     
     

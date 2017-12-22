@@ -13,7 +13,7 @@
             <div>Distance: {{$radar->distance}}</div>
             <div>Time: {{$radar->time}}</div>
             <div>Speed: {{$radar->distance / $radar->time * 3.6}}</div>
-
+            <br>
             <button type="submit">Delete</button>
         </form>
 

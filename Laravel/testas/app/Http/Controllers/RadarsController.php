@@ -103,8 +103,14 @@ class RadarsController extends Controller
      * @param  Radar  $radarid
      * @return \Illuminate\Http\Response
      */
+    public function delete(Radar $radar)
+    {
+        return view('radars.delete', compact('radar'));
+    }
+
     public function destroy(Radar $radar)
     {
-        //
+        $radar->delete();
+        return redirect('/radars');        
     }
 }

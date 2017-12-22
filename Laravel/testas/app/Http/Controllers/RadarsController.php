@@ -15,7 +15,7 @@ class RadarsController extends Controller
     public function index()
     
     {
-    $radars = Radar::orderBy('date', 'desc')->paginate(15);
+    $radars = Radar::orderBy('date', 'desc')->paginate(10);
     return view('radars.index', compact('radars'));
     }
 

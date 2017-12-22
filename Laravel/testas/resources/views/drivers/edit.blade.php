@@ -1,26 +1,20 @@
-@extends('layouts.app')
+@extends('layout')
 
 @section('content')
+        <h1>Edit Driver</h1>
 
-<h1>Naujas vairuotojo įrašas</h1>
-<form action="{{ url('/drivers', $driver->id)}}" method="post" > 
-    {{ csrf_field() }}
-    {{ method_field('PUT') }}
+        <form method="post" action="{{ url('drivers', $driver->id) }}">
+        {{ csrf_field() }}
+        {{ method_field('PUT') }}
+        <input name="name" value="{{old('name',$driver ->name)}}">
+        <input name="city" value="{{old('city',$driver ->city)}}">
+              
+            <button type="submit">Update</button>
 
-    <div>
-        <label for="name">Vardas:</label>
-        <input id="name" name="name" value="{{ $driver->name }}" require>
-    </div>   
-    <div>
-        <label for="surname">Pavarde:</label>
-        <input id="surname" name="surname" value="{{ $driver->surname }}" require>
-    </div>
-    <div>
-        <label for="city">Miestas:</label>
-        <input id="city" name="city" value="{{ $driver->city }}" require>
-    </div>
-    <button>{{ __('buttons.save') }}</button>
-    <a href="{{ url('/drivers')}}">Atgal</a>
-</form>
-    
+        </form>
+
+        
+    <br>
+
+    <a href="{{url('drivers')}}"><h3>Atgal į sąrašą</h3></a>
 @endsection

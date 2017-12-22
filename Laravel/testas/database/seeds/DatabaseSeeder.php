@@ -84,7 +84,7 @@ class DatabaseSeeder extends Seeder
             $radar->distance = $distance;
             $radar->time = $time;
 
-            if ($i % 100 ==0) {
+            if ($i % 50 ==0) {
                 $radar->driver_id = rand (1,3); 
             }
             

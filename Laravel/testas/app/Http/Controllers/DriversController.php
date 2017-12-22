@@ -14,10 +14,10 @@ class DriversController extends Controller
      */
     public function index()
     {
-        $drivers = Driver::all();
+        $drivers = Driver::orderBy('id', 'asc')->paginate(4);
         return view('drivers.index', compact('drivers'));
     }
-
+    
     /**
      * Show the form for creating a new resource.
      *
@@ -36,6 +36,13 @@ class DriversController extends Controller
      */
     public function store(Request $request)
     {
+        
+            $this->validate($request, [
+            'name' => 'required | string',
+            'city' => 'required | string',
+            ]);
+
+
         $driver = new Driver;
         $driver->name = $request->input('name');
         $driver->city = $request->input('city');
@@ -47,7 +54,7 @@ class DriversController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  Driver  $radar
+     * @param  Driver  $driver
      * @return \Illuminate\Http\Response
      */
     public function show(Driver $driver)
@@ -62,10 +69,10 @@ class DriversController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit(Driver $driver)
+    
     {
-        //
+        return view('drivers.edit', compact('driver'));
     }
-
     /**
      * Update the specified resource in storage.
      *
@@ -75,8 +82,13 @@ class DriversController extends Controller
      */
     public function update(Request $request, Driver $driver)
     {
-        //
-    }
+        
+        $driver->name = $request->input('name');
+        $driver->city = $request->input('city');
+        $driver->save();
+
+        return redirect('/drivers');
+        }
 
     /**
      * Remove the specified resource from storage.

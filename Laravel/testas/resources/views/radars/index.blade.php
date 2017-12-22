@@ -3,7 +3,7 @@
 @section('content')
 
 <h1>Radars</h1>
-<table border=1px>
+<table class="table">
     <tr>
         <th>Id</th>
         <th>Date</th>

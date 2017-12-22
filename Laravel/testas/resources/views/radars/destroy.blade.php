@@ -1,7 +1,7 @@
 @extends('layout')
 
 @section('content')
-    <h1>Delete Radar</h1>
+<h1>Delete Radar</h1>
 
         <form method="post" action="{{ url('radars', $radar->id) }}">
             {{ csrf_field() }}

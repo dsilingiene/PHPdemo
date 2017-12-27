@@ -6,15 +6,20 @@
 <table class="table">
     <tr>
         <th>Id</th>
-        <th>Date</th>
-        <th>Number</th>
-        <th>Distance, m </th>
-        <th>Time, s </th>
-        <th>Speed, km/h </th>
-        <th>Edit </th>
-        <th>Delete </th>
+        <th>{{__('Date')}}</th>
+        <th>{{__('Number')}}</th>
+        <th>{{__('Distance, m')}}</th>
+        <th>{{__('Time, s')}}</th>
+        <th>{{__('Speed, km/h')}}</th>
+        <th>{{__('Edit')}}</th>
+        <th>{{__('Delete')}}</th>
         <th>Driver Id </th>
         <th>Driver Name </th>
+        <th>Creator Id </th>
+        <th>Updator Id </th>
+
+        
+
         
 
         
@@ -27,10 +32,12 @@
         <td>{{$radar->distance}}</td>
         <td>{{$radar->time}}</td>
         <td>{{ROUND($radar->distance/$radar-> time) * 3.6}}</td>
-        <td><a href="radars/{{ $radar->id }}/edit">Edit</a></td>
-        <td><a href="radars/{{ $radar->id }}/delete">Delete</a></td>
+        <td><a href="radars/{{ $radar->id }}/edit"><button type="submit">{{ __('buttons.edit') }}</button></a></td>
+        <td><a href="radars/{{ $radar->id }}/delete"><button type="submit">{{ __('buttons.delete') }}</button></a></td>
         <td>{{$radar->driver_id}}</td>
         <td>{{$radar->driver ? $radar->driver->name: '' }}</td>
+        <td>{{$radar->creator_id}}</td>
+        <td>{{$radar->updator_id}}</td>
         
         
                 
@@ -42,6 +49,7 @@
 
 <br>
         
-        <a href={{ url('radars/create') }}><h3>Naujas įrašas</h3></a>
+        <a href={{ url('radars/create') }}><button type="submit">{{ __('buttons.new') }}</button></a></a>
+        
 
 @endsection

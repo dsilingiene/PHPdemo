@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('content')')
+@section('content')
 
 @section('content')
     <title>New Radar</title>
@@ -13,7 +13,7 @@
             <input name="distance" placeholder="distance">
             <input name="time" placeholder="time">
             
-            <button type="submit">Save</button>
+            <button type="submit">{{ __('buttons.edit') }}</button></a>
         </form>
         <br>
         @if (count($errors))

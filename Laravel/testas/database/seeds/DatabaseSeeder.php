@@ -59,6 +59,19 @@ class DatabaseSeeder extends Seeder
             'name' => 'Romas',
             'city' => 'Balbieriškis'
         ]);
+
+        \App\User::create([
+            'email' => 'admin@admin.lt',
+            'name' => 'Adminas Petras',
+            'password' => '123'
+        ]);
+
+        \App\User::create([
+            'email' => 'adm@adm.lt',
+            'name' => 'Admine Ona',
+            'password' => '222'
+        ]);
+        
         $radarsDistance = [5000, 4500, 5100];
         
         $raide = 'ABCDEFGHIJKLMNOPRSTUVZ';
@@ -88,6 +101,10 @@ class DatabaseSeeder extends Seeder
                 $radar->driver_id = rand (1,3); 
             }
             
+            $radar->creator_id = 1;
+            $radar->updator_id = 1;
+            $radar->user_id = 1;
+
             $radar->save();
     
     

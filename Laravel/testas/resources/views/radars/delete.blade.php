@@ -14,7 +14,8 @@
             <div>Time: {{$radar->time}}</div>
             <div>Speed: {{$radar->distance / $radar->time * 3.6}}</div>
             <br>
-            <button type="submit">Delete</button>
+            <button type="submit">{{ __('buttons.delete') }}</button>
+            
         </form>
 
         <a href="{{url('radars')}}"><h3>Atgal į sąrašą</h3></a>

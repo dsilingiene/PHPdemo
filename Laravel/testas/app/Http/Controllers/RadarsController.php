@@ -51,6 +51,7 @@ class RadarsController extends Controller
         $radar->number = $request->input('number');
         $radar->distance = $request->input('distance');
         $radar->time = $request->input('time');
+        $radar->user_id = \Auth::user()->id;
         $radar->save();
 
         return redirect('/radars');
@@ -92,6 +93,7 @@ class RadarsController extends Controller
         $radar->number = $request->input('number');
         $radar->distance = $request->input('distance');
         $radar->time = $request->input('time');
+        $radar->user_id = \Auth::user()->id;
         $radar->save();
 
         return redirect('/radars');

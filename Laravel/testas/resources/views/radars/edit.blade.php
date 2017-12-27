@@ -11,7 +11,7 @@
             <input name="distance" value="{{old('distance',$radar ->distance)}}">
             <input name="time" value="{{old('time',$radar ->time)}}">
             
-            <button type="submit">Update</button>
+            <button type="submit">{{ __('buttons.edit') }}</button></a>
         </form>
 
         
